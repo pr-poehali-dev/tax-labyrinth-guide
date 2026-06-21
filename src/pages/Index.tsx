@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 const HERO_IMG =
-  'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/5ca42f44-6920-46a6-a65a-43994158ed20.jpg';
+  'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/f2f0b9fe-b5db-436a-a380-e801bd328e79.jpg';
 
 const NAV = [
   { id: 'home', label: 'Главная' },
