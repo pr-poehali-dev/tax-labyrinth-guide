@@ -9,42 +9,56 @@ const STEPS = [
     title: 'Вход в личный кабинет ФНС',
     text: 'Зайдите на сайт lkfl2.nalog.ru или в мобильное приложение «Налоги ФЛ». Авторизуйтесь через логин/пароль ФНС или подтверждённую учётную запись Госуслуг.',
     tip: 'Если входите впервые — учётная запись Госуслуг с подтверждённым статусом работает быстрее всего.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/1eb4eab9-7402-46b9-92cb-3d6023b46e82.jpg',
+    imgAlt: 'Страница входа в личный кабинет ФНС',
   },
   {
     icon: 'MousePointerClick',
     title: 'Раздел «Доходы и вычеты»',
     text: 'В верхнем меню выберите раздел «Доходы и вычеты», затем «Декларации». Нажмите кнопку «Подать декларацию» и выберите «Подать декларацию 3-НДФЛ».',
     tip: 'Система предложит заполнить онлайн — это самый простой способ, без установки программы «Декларация».',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/c3c1377c-d4a8-4018-9ecc-436418bee8bb.jpg',
+    imgAlt: 'Раздел Доходы и вычеты в личном кабинете ФНС',
   },
   {
     icon: 'Calendar',
     title: 'Выбор года и данных',
     text: 'Укажите год, за который подаёте декларацию. Часть данных о доходах от работодателя подтянется автоматически из справок 2-НДФЛ.',
     tip: 'Справки появляются в кабинете обычно после 1 марта следующего года.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/1b7cb734-c52b-475b-b6a9-bdbc5c2c58c6.jpg',
+    imgAlt: 'Выбор налогового периода для декларации 3-НДФЛ',
   },
   {
     icon: 'FileText',
     title: 'Указание доходов',
     text: 'Проверьте автоматически загруженные доходы. Если декларируете продажу имущества или другой доход — добавьте его вручную через кнопку «Добавить источник дохода».',
     tip: 'Для продажи квартиры/машины укажите сумму продажи и документально подтверждённые расходы на покупку.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/b348883a-81ab-4dee-902b-5855b59c7513.jpg',
+    imgAlt: 'Раздел источники дохода в декларации 3-НДФЛ',
   },
   {
     icon: 'BadgePercent',
     title: 'Оформление вычетов',
     text: 'Выберите тип вычета: имущественный, социальный (лечение, обучение) или инвестиционный. Внесите суммы и приложите сканы подтверждающих документов.',
     tip: 'Социальный вычет за лечение и обучение — до 150 000 ₽ расходов, это до 19 500 ₽ возврата.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/fa8b0d38-a5fc-481a-96be-10d4825fc9fb.jpg',
+    imgAlt: 'Выбор налоговых вычетов в декларации 3-НДФЛ',
   },
   {
     icon: 'Upload',
     title: 'Документы и подпись',
     text: 'Прикрепите сканы договоров, чеков и справок. Сформируйте неквалифицированную электронную подпись прямо в кабинете (если ещё не создана) и введите пароль к ней.',
     tip: 'Подпись создаётся бесплатно в разделе «Настройки профиля» — это занимает пару минут.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/e14c9e9d-8a1e-4411-8e97-e9337a8b889d.jpg',
+    imgAlt: 'Загрузка документов и электронная подпись в ФНС',
   },
   {
     icon: 'Send',
     title: 'Отправка и контроль',
     text: 'Нажмите «Подтвердить и отправить». Статус проверки отслеживайте в разделе «Сообщения». Камеральная проверка длится до 3 месяцев, возврат — ещё до 1 месяца.',
     tip: 'Не забудьте подать заявление на возврат с реквизитами счёта — без него деньги не перечислят.',
+    img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/02211784-6771-46a8-a53c-96d43795381a.jpg',
+    imgAlt: 'Подтверждение отправки декларации и статус проверки',
   },
 ];
 
@@ -102,20 +116,39 @@ const Declaration3NDFL = () => {
             </div>
 
             {/* Card */}
-            <div className="bg-primary-foreground/[0.04] border border-primary-foreground/10 rounded-xl p-8 md:p-12 animate-fade-up" key={step}>
-              <div className="flex items-start gap-5 mb-6">
-                <div className="w-14 h-14 shrink-0 rounded-lg bg-accent/15 flex items-center justify-center">
-                  <Icon name={current.icon} size={26} className="text-accent" />
+            <div className="bg-primary-foreground/[0.04] border border-primary-foreground/10 rounded-xl overflow-hidden animate-fade-up" key={step}>
+              {/* Screenshot */}
+              <div className="relative w-full bg-primary-foreground/5 border-b border-primary-foreground/10 overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                <div className="absolute top-0 inset-x-0 h-7 bg-primary-foreground/10 flex items-center gap-1.5 px-3 z-10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+                  <span className="ml-3 flex-1 h-4 bg-primary-foreground/10 rounded text-[10px] text-primary-foreground/40 flex items-center justify-center tracking-wide">lkfl2.nalog.ru</span>
                 </div>
-                <div>
-                  <div className="text-accent text-sm font-semibold mb-1">Шаг {step + 1}</div>
-                  <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">{current.title}</h2>
-                </div>
+                <img
+                  src={current.img}
+                  alt={current.imgAlt}
+                  className="w-full h-full object-cover object-top pt-7"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none" />
               </div>
-              <p className="text-primary-foreground/80 text-lg leading-relaxed mb-6">{current.text}</p>
-              <div className="flex items-start gap-3 bg-accent/10 border border-accent/20 rounded-lg p-4">
-                <Icon name="Lightbulb" size={20} className="text-accent shrink-0 mt-0.5" />
-                <p className="text-primary-foreground/85 text-sm leading-relaxed">{current.tip}</p>
+
+              {/* Content */}
+              <div className="p-8 md:p-10">
+                <div className="flex items-start gap-5 mb-5">
+                  <div className="w-12 h-12 shrink-0 rounded-lg bg-accent/15 flex items-center justify-center">
+                    <Icon name={current.icon} size={22} className="text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-accent text-sm font-semibold mb-1">Шаг {step + 1}</div>
+                    <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">{current.title}</h2>
+                  </div>
+                </div>
+                <p className="text-primary-foreground/80 text-lg leading-relaxed mb-5">{current.text}</p>
+                <div className="flex items-start gap-3 bg-accent/10 border border-accent/20 rounded-lg p-4">
+                  <Icon name="Lightbulb" size={20} className="text-accent shrink-0 mt-0.5" />
+                  <p className="text-primary-foreground/85 text-sm leading-relaxed">{current.tip}</p>
+                </div>
               </div>
             </div>
 
