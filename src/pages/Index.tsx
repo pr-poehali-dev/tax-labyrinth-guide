@@ -30,9 +30,9 @@ const EXPERTS = [
 ];
 
 const POSTS = [
-  { tag: 'Вычеты', title: 'Как вернуть до 52 000 ₽ за обучение и лечение', date: '12 июня 2026' },
-  { tag: 'Самозанятость', title: 'НПД в 2026 году: что изменилось и кому подходит', date: '5 июня 2026' },
-  { tag: 'ИП', title: 'УСН «доходы» vs «доходы минус расходы»: что выбрать', date: '28 мая 2026' },
+  { tag: 'Вычеты', title: 'Как вернуть до 52 000 ₽ за обучение и лечение', date: '12 июня 2026', img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/747fefca-b09f-4fbe-b696-9adcfd2b4578.jpg' },
+  { tag: 'Самозанятость', title: 'НПД в 2026 году: что изменилось и кому подходит', date: '5 июня 2026', img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/5f5110ad-a5cd-4836-9c8b-29f86b5a349b.jpg' },
+  { tag: 'ИП', title: 'УСН «доходы» vs «доходы минус расходы»: что выбрать', date: '28 мая 2026', img: 'https://cdn.poehali.dev/projects/afb1ddd3-0189-4d02-b1ef-9335878bb213/files/49eebc8b-6bad-4eb6-b5f1-3f36fb13270e.jpg' },
 ];
 
 const QUIZ = [
@@ -331,8 +331,9 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {POSTS.map((p) => (
               <article key={p.title} className="bg-card border border-border rounded-lg overflow-hidden group cursor-pointer hover:shadow-lg transition-all">
-                <div className="h-40 bg-primary relative grid-lines overflow-hidden">
-                  <div className="absolute inset-0 grid-lines opacity-20" />
+                <div className="h-48 relative overflow-hidden bg-primary">
+                  {p.img && <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">{p.tag}</span>
                 </div>
                 <div className="p-6">
