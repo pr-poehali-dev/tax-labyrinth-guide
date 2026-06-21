@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Submit question",
+      "method": "POST",
+      "path": "/",
+      "body": { "email": "test@example.com", "question": "Как получить налоговый вычет за лечение?" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "Empty fields",
+      "method": "POST",
+      "path": "/",
+      "body": { "email": "", "question": "" },
+      "expectedStatus": 400
+    }
+  ]
+}

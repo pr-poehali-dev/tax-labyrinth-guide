@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Declaration3NDFL from "./pages/Declaration3NDFL";
 import USN from "./pages/USN";
 import Payments from "./pages/Payments";
+import TaxLaw from "./pages/TaxLaw";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/declaration-3ndfl" element={<Declaration3NDFL />} />
           <Route path="/usn" element={<USN />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/tax-law" element={<TaxLaw />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
