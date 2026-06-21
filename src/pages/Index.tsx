@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
@@ -14,7 +15,7 @@ const NAV = [
 ];
 
 const SERVICES = [
-  { icon: 'FileText', title: 'Декларация 3-НДФЛ', text: 'Формируем декларацию в личном кабинете ФНС за один вечер и получаем налоговый вычет.' },
+  { icon: 'FileText', title: 'Декларация 3-НДФЛ', text: 'Формируем декларацию в личном кабинете ФНС за один вечер и получаем налоговый вычет.', link: '/declaration-3ndfl' },
   { icon: 'Calculator', title: 'Отчётность УСН', text: 'Разбираем упрощёнку для ИП и малого бизнеса: расчёт, сроки, подача через кабинет.' },
   { icon: 'Wallet', title: 'Платежи и задолженности', text: 'Учим находить начисления, задолженности и переплаты, оплачивать налоги без ошибок.' },
   { icon: 'Building2', title: 'Объекты налогообложения', text: 'Показываем, как проверить имущество, землю и транспорт в личном кабинете.' },
@@ -142,6 +143,7 @@ const Quiz = () => {
 
 const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollTo = (id: string) => {
     setMenuOpen(false);
@@ -236,12 +238,22 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden border border-border">
             {SERVICES.map((s) => (
-              <div key={s.title} className="bg-card p-8 hover:bg-secondary/60 transition-colors group">
+              <div
+                key={s.title}
+                onClick={() => s.link && navigate(s.link)}
+                className={`bg-card p-8 transition-colors group ${s.link ? 'cursor-pointer hover:bg-secondary' : 'hover:bg-secondary/60'}`}
+              >
                 <div className="w-12 h-12 rounded bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
                   <Icon name={s.icon} size={22} className="text-primary group-hover:text-accent transition-colors" />
                 </div>
                 <h3 className="font-display text-2xl font-semibold mb-2">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{s.text}</p>
+                {s.link && (
+                  <div className="inline-flex items-center gap-1.5 mt-4 text-accent text-sm font-semibold group-hover:gap-2.5 transition-all">
+                    Пошаговая инструкция
+                    <Icon name="ArrowRight" size={15} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
